@@ -11,5 +11,5 @@ public:
     bool is_valid(); //Returns whether the entry is valid
     void set_valid(bool valid); //Allows to set whether the entry is valid
 private:
-//Fill the class with the necessary member variables
+//todo Fill the class with the necessary member variables
 };

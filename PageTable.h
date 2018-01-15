@@ -8,8 +8,8 @@
 #include "PageDirectoryEntry.h"
 using namespace std;
 
-#define PAGEDIR_ENTRIES_AMOUNT 1024
-#define PAGETABLE_ENTRIES 1024
+#define PDE_AMOUNT 1024
+#define PTE_AMOUNT 1024
 
 class VirtualMemory; //You will probably want to include this in PageTable.cpp
 class PageTable
@@ -17,14 +17,15 @@ class PageTable
 public:
 //Your Constructor (and Destructor if you need one) should go here
     PageTable(VirtualMemory& virtualMemory):mVirtualMemory(virtualMemory){
-        initPageDirectory();
+        initPDEList();
     }
-    int* GetPage (unsigned int adr);
+    ~PageTable(){
+        //TODO impl
+    }
+    int* GetPage (unsigned int addr);
 private:
 //Fill the class with the necessary member variables
-    vector<PageDirectoryEntry> mDirList;
+    vector<PageDirectoryEntry*> mPDEList;
     VirtualMemory& mVirtualMemory;
-
-    void SetPage (unsigned int index);
-    void initPageDirectory();
+    void initPDEList();
 };
