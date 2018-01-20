@@ -4,21 +4,17 @@
 #include "PageTableEntry.h"
 
 int *PageTableEntry::get_page_address() {
-    //TODO impl
-    return nullptr;
+    return mFramePtr;
 }
 
 void PageTableEntry::set_page_address(int *adr) {
-
-    //TODO impl
+    mFramePtr = adr;
 }
 
 bool PageTableEntry::is_valid() {
-    //TODO impl
-    return false;
+    return mIsValid;
 }
 
 void PageTableEntry::set_valid(bool valid) {
-    //TODO impl
-
+    mIsValid = valid;
 }
