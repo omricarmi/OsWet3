@@ -11,7 +11,23 @@ int *PageDirectoryEntry::GetPage(unsigned int pteNumber) {
 }
 
 void PageDirectoryEntry::initPTEList() {
-    for (int i = 0; i < PTE_AMOUNT; ++i) {
-        mPTEList[i] = nullptr;
-    }
+    //TODO impl
+}
+
+bool PageDirectoryEntry::isPTEListEmpty() {
+    //TODO impl
+    return false;
+}
+
+void PageDirectoryEntry::setPTE(unsigned int pteNumber, int *addr) {
+    //TODO impl
+}
+
+bool PageDirectoryEntry::isValidPTE(unsigned int pteNumber) {
+    //TODO impl
+    return false;
+}
+
+void PageDirectoryEntry::setValidPTE(unsigned int pteNumber, bool isValid) {
+    //TODO impl
 }

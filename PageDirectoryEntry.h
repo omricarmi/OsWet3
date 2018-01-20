@@ -13,16 +13,16 @@ using namespace std;
 class PageDirectoryEntry {
 
 public:
-    PageDirectoryEntry(){
-        initPTEList();
-    }
-    ~PageDirectoryEntry(){
-        //TODO impl
-    }
+    PageDirectoryEntry(){}
+    void initPTEList();
+    bool isPTEListEmpty();
+    void setPTE(unsigned int pteNumber,int* addr);
+    bool isValidPTE(unsigned int pteNumber);
+    void setValidPTE(unsigned int pteNumber,bool isValid);
     int* GetPage(unsigned int pteNumber);
+
 private:
     vector<PageTableEntry*> mPTEList;
-    void initPTEList();
 };
 
 
