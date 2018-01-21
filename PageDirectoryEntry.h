@@ -19,10 +19,10 @@ public:
     void setPTE(unsigned int pteNumber,int* addr);
     bool isValidPTE(unsigned int pteNumber);
     void setValidPTE(unsigned int pteNumber,bool isValid);
-    int* GetPage(unsigned int pteNumber);
+    int* get_page_address(unsigned int pteNumber);
 
 private:
-    vector<PageTableEntry*> mPTEList;
+    vector<PageTableEntry> mListPTE;
 };
 
 

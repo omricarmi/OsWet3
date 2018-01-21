@@ -11,7 +11,7 @@ int* PageTable::GetPage(unsigned int addr) {
     unsigned int pteNumber = (addr>>12) & 0x3ff;
     //TODO get the page from the PDE
     if(mPDEList.[pdeNumber] != nullptr) {
-        return mPDEList[pdeNumber]->GetPage(pteNumber);
+        return mPDEList[pdeNumber]->get_page_address(pteNumber);
     }else{
         //TODO allocate new PDE
         mPDEList[pdeNumber] = new PageDirectoryEntry();

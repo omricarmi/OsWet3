@@ -5,29 +5,32 @@
 #include "PageDirectoryEntry.h"
 #include "PageTable.h"
 
-int *PageDirectoryEntry::GetPage(unsigned int pteNumber) {
-    //TODO impl
-    return nullptr;
-}
-
 void PageDirectoryEntry::initPTEList() {
-    //TODO impl
-}
-
-bool PageDirectoryEntry::isPTEListEmpty() {
-    //TODO impl
-    return false;
+    for (int i = 0; i < PTE_AMOUNT; ++i) {
+        mListPTE.push_back(PageTableEntry());
+    }
 }
 
 void PageDirectoryEntry::setPTE(unsigned int pteNumber, int *addr) {
-    //TODO impl
+    mListPTE[pteNumber].set_page_address(addr);
+    mListPTE[pteNumber].set_valid(true);
+}
+
+int *PageDirectoryEntry::get_page_address(unsigned int pteNumber) {
+    if(mListPTE[pteNumber].is_valid()){
+        return mListPTE[pteNumber].get_page_address();
+    }
+    return nullptr;
+}
+
+bool PageDirectoryEntry::isPTEListEmpty() {
+    return mListPTE.empty();
 }
 
 bool PageDirectoryEntry::isValidPTE(unsigned int pteNumber) {
-    //TODO impl
-    return false;
+    return mListPTE[pteNumber].is_valid();
 }
 
 void PageDirectoryEntry::setValidPTE(unsigned int pteNumber, bool isValid) {
-    //TODO impl
+    mListPTE[pteNumber].set_valid(isValid);
 }
